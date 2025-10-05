@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ogniem i Mieczem - Kalkulator</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Ogniem i Mieczem - Kalkulator Prawdopodobieństwa</h1>
+        <div class="calculator-layout">
+            <fieldset class="calculator-section">
+                <legend>Atakujący</legend>
+                <div class="input-group">
+                    <label for="num-attacks">Liczba ataków:</label>
+                    <input type="number" id="num-attacks" value="6">
+                </div>
+                <div class="input-group">
+                    <label for="impet-attacks">Impet:</label>
+                    <input type="number" id="impet-attacks" value="4">
+                </div>
+                <div class="input-group">
+                    <label>Wyszkolenie atakującego:</label>
+                    <div id="attacker-skill-buttons" class="button-group">
+                        <button class="skill-btn" data-value="4">4</button>
+                        <button class="skill-btn selected" data-value="5">5</button>
+                        <button class="skill-btn" data-value="6">6</button>
+                    </div>
+                </div>
+                <div class="input-group">
+                    <label data-tooltip="Pozwala przerzucić określoną liczbę nieudanych rzutów na trafienie.">Przerzut porażek:</label>
+                    <div id="przerzut-porazek-buttons" class="button-group">
+                        <button class="icon-btn selected" data-value="0">0</button>
+                        <button class="icon-btn" data-value="1">1</button>
+                        <button class="icon-btn" data-value="2">2</button>
+                        <button class="icon-btn" data-value="all">wszystkie</button>
+                    </div>
+                </div>
+                <div class="input-group">
+                    <label>Przebicie:</label>
+                    <div id="przebicie-buttons" class="button-group">
+                        <button class="icon-btn selected" data-value="0">Brak</button>
+                        <button class="icon-btn" data-value="1"><img src="./img/przebicie.jpg" alt="Przebicie 1"></button>
+                        <button class="icon-btn" data-value="2"><img src="./img/przebicie.jpg" alt="Przebicie 2">:2</button>
+                        <button class="icon-btn" data-value="artyleria" data-tooltip="Ostrzał artyleryjski - nie wykonuje się testów na Odporność."><img src="./img/artyleria.jpg" alt="Artyleria"></button>
+                    </div>
+                </div>
+                <div class="input-group">
+                    <label>Broń:</label>
+                    <div id="weapon-buttons" class="button-group" id="attacker-weapon-buttons">
+                        <button class="icon-btn selected" data-value="none">Brak</button>
+                        <button class="icon-btn" data-value="pistolet" data-tooltip="Dodaje 1 kość ataku."><img src="./img/pistolet.jpg" alt="Pistolet"></button>
+                        <button class="icon-btn" data-value="kopia" data-tooltip="Dodaje 1 kość impetu, Przebicie ustawione na 3."><img src="./img/kopia.jpg" alt="Kopia"></button>
+                        <button class="icon-btn" data-value="kopia_husarska" data-tooltip="Dodaje 1 kość impetu, Przebicie ustawione na 3. Impet nie jest negowany przez Drzewcową obrońcy."><img src="./img/kopia-husarska.jpg" alt="Kopia husarska"></button>
+                        <button class="icon-btn" data-value="drzewcowa" data-tooltip="(Tylko jednostka Jazdy) W walce wręcz będącej wynikiem Akcji Szarża albo Reakcji Kontrszarża, jeżeli Jednostka korzysta z Impetu, zwiększa Przebicie o 1."><img src="./img/drzewcowa.jpg" alt="Drzewcowa"></button>
+                        <button class="icon-btn" data-value="drzewcowa_piki" data-tooltip="Zwiększa liczbę ataków o 2, dodaje 1 kość impetu."><img src="./img/piki.jpg" alt="Drzewcowa: Piki"></button>
+                    </div>
+                </div>
+            </fieldset>
+
+            <fieldset class="calculator-section">
+                <legend>Obrońca</legend>
+                <div class="input-group">
+                    <label>Odporność Obrońcy:</label>
+                    <div id="defender-armor-buttons" class="button-group">
+                        <button class="armor-btn" data-value="2">2</button>
+                        <button class="armor-btn selected" data-value="3">3</button>
+                        <button class="armor-btn" data-value="4">4</button>
+                        <button class="armor-btn" data-value="5">5</button>
+                        <button class="armor-btn" data-value="6">6</button>
+                    </div>
+                </div>
+                <div class="input-group">
+                    <label>Redukcja ataków (Parowanie, Osłona, itp.):</label>
+                    <div id="redukcja-atakow-buttons" class="button-group">
+                        <button class="icon-btn selected" data-value="0">0</button>
+                        <button class="icon-btn" data-value="1">1</button>
+                        <button class="icon-btn" data-value="2">2</button>
+                    </div>
+                </div>
+                <div class="input-group">
+                    <label>Przerzut udanych trafień (Odskok, Ostrzał Artyleryjski Daleki itp.):</label>
+                    <div id="przerzut-sukcesow-buttons" class="button-group">
+                        <button class="icon-btn selected" data-value="0">0</button>
+                        <button class="icon-btn" data-value="all">wszystkie</button>
+                    </div>
+                </div>
+                <div class="input-group">
+                    <label>Broń obrońcy:</label>
+                    <div id="defender-weapon-buttons" class="button-group">
+                        <button class="icon-btn selected" data-value="none">Brak</button>
+                        <button class="icon-btn" data-value="drzewcowa" data-tooltip="Neguje impet atakującego (chyba że atakujący ma Kopię husarską)."><img src="./img/drzewcowa.jpg" alt="Drzewcowa"></button>
+                        <button class="icon-btn" data-value="drzewcowa_piki" data-tooltip="Neguje impet atakującego (chyba że atakujący ma Kopię husarską) i zwiększa Parowanie o 1."><img src="./img/piki.jpg" alt="Drzewcowa: Piki"></button>
+                    </div>
+                </div>
+
+                <h4 class="sub-legend">Teren</h4>
+                <div class="input-group">
+                    <label for="terrain-impet-negation">Pozbawia impetu (Teren):</label>
+                    <input type="checkbox" id="terrain-impet-negation">
+                </div>
+                <div class="input-group">
+                    <label for="terrain-defensywny">Defensywny (Teren):</label>
+                    <input type="number" id="terrain-defensywny" value="0">
+                </div>
+            </fieldset>
+        </div>
+
+        <div class="result">
+            <h3>Średnia liczba ran: <span id="average-wounds-result"></span></h3>
+        </div>
+
+        <div class="chart-container">
+            <h3>Rozkład ran <span class="approx-note" id="avg-wounds-approx-note"></span></h3>
+            <div id="chart" class="chart"></div>
+        </div>
+    </div>
+    <script src="script.js"></script>
+    <div class="disclaimer">
+        <p>To jest nieoficjalne narzędzie i nie jest powiązane z Wargamer, wydawcą gry Ogniem i Mieczem.</p>
+    </div>
+</body>
+</html>
