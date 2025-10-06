@@ -196,10 +196,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
         // 5. Determine Calculation Method
         const useMonteCarlo = (przerzutPorazekValue !== '0' && przerzutPorazekValue !== 0) || (przerzutSukcesowValue !== '0' && przerzutSukcesowValue !== 0) || finalPrzebicie > 0;
-        let isApprox = useMonteCarlo;
-        if (isArtilleryAttack) {
-            // isApprox = true; // Artillery is not an approximation
-        }
         let averageWounds;
         const probHitInitial = attackerSkill / 10;
 
@@ -216,7 +212,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
         // 7. Update UI
         averageWoundsResult.textContent = averageWounds.toFixed(2);
-        avgWoundsApproxNote.textContent = isApprox && numAttacks > 0 ? '(przybl.)' : '';
+        avgWoundsApproxNote.textContent = useMonteCarlo && numAttacks > 0 ? '(przybl.)' : '';
         updateChart(distribution);
     }
 
