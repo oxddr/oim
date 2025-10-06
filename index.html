@@ -24,7 +24,7 @@
                     <input type="number" id="impet-attacks" value="4">
                 </div>
                 <div class="input-group">
-                    <label>Wyszkolenie atakującego:</label>
+                    <label>Wyszkolenie Atakującego:</label>
                     <div id="attacker-skill-buttons" class="button-group">
                         <button class="skill-btn" data-value="4">4</button>
                         <button class="skill-btn selected" data-value="5">5</button>
@@ -32,7 +32,7 @@
                     </div>
                 </div>
                 <div class="input-group">
-                    <label data-tooltip="Pozwala przerzucić określoną liczbę nieudanych rzutów na trafienie.">Przerzut porażek:</label>
+                    <label data-tooltip="Pozwala przerzucić określoną liczbę nieudanych rzutów na trafienie.">Przerzut porażek (Szermierze, Strzelcy itd.):</label>
                     <div id="przerzut-porazek-buttons" class="button-group">
                         <button class="icon-btn selected" data-value="0">0</button>
                         <button class="icon-btn" data-value="1">1</button>
@@ -87,11 +87,12 @@
                     <label>Przerzut udanych trafień (Odskok, Ostrzał Artyleryjski Daleki itp.):</label>
                     <div id="przerzut-sukcesow-buttons" class="button-group">
                         <button class="icon-btn selected" data-value="0">0</button>
+                        <button class="icon-btn selected" data-value="2">2</button>
                         <button class="icon-btn" data-value="all">wszystkie</button>
                     </div>
                 </div>
                 <div class="input-group">
-                    <label>Broń obrońcy:</label>
+                    <label>Broń:</label>
                     <div id="defender-weapon-buttons" class="button-group">
                         <button class="icon-btn selected" data-value="none">Brak</button>
                         <button class="icon-btn" data-value="drzewcowa" data-tooltip="Neguje impet atakującego (chyba że atakujący ma Kopię husarską)."><img src="./img/drzewcowa.jpg" alt="Drzewcowa"></button>
@@ -101,11 +102,11 @@
 
                 <h4 class="sub-legend">Teren</h4>
                 <div class="input-group">
-                    <label for="terrain-impet-negation">Pozbawia impetu (Teren):</label>
+                    <label for="terrain-impet-negation">Pozbawia impetu:</label>
                     <input type="checkbox" id="terrain-impet-negation">
                 </div>
                 <div class="input-group">
-                    <label for="terrain-defensywny">Defensywny (Teren):</label>
+                    <label for="terrain-defensywny">Defensywny:</label>
                     <input type="number" id="terrain-defensywny" value="0">
                 </div>
             </fieldset>
