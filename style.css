@@ -1,5 +1,10 @@
+@font-face {
+    font-family: 'Phaeton';
+    src: url('./fonts/Phaeton-Regular.otf') format('opentype');
+}
+
 body {
-    font-family: sans-serif;
+    font-family: 'Roboto', sans-serif;
     background-color: #f0f0f0;
     color: #333;
     display: flex;
@@ -18,6 +23,7 @@ body {
 }
 
 h1 {
+    font-family: 'Phaeton';
     color: #8B4513;
 }
 
@@ -38,6 +44,7 @@ h1 {
 }
 
 .calculator-section legend {
+    font-family: 'Phaeton';
     font-weight: bold;
     font-size: 1.2rem;
     color: #8B4513;
@@ -45,12 +52,15 @@ h1 {
 }
 
 .sub-legend {
+    font-family: 'Phaeton';
     font-weight: bold;
     font-size: 1.2rem;
     color: #8B4513;
     text-align: center;
     margin: 0.5rem 0 0 0;
 }
+
+
 
 .input-group {
     display: flex;
